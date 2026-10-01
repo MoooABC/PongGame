@@ -36,16 +36,16 @@
             this.btnOneVsAI = new System.Windows.Forms.Button();
             this.btnTwo = new System.Windows.Forms.Button();
             this.lblUnfair = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBigVsSmall = new System.Windows.Forms.Button();
             this.btnFastVsSlow = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOneVsGoodAI = new System.Windows.Forms.Button();
             this.lblSpecial = new System.Windows.Forms.Label();
             this.btnBall = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnXAxis = new System.Windows.Forms.Button();
             this.flowLayoutPanelSettings = new System.Windows.Forms.FlowLayoutPanel();
             this.trackBarBallRadius = new System.Windows.Forms.TrackBar();
-            this.btnBackColor = new System.Windows.Forms.Button();
             this.labelBallSize = new System.Windows.Forms.Label();
+            this.btnBackColor = new System.Windows.Forms.Button();
             this.btnPaddleColor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBallColor = new System.Windows.Forms.Button();
@@ -64,20 +64,22 @@
             this.flowLayoutPanel.Controls.Add(this.btnOneVsAI);
             this.flowLayoutPanel.Controls.Add(this.btnTwo);
             this.flowLayoutPanel.Controls.Add(this.lblUnfair);
-            this.flowLayoutPanel.Controls.Add(this.button1);
+            this.flowLayoutPanel.Controls.Add(this.btnBigVsSmall);
             this.flowLayoutPanel.Controls.Add(this.btnFastVsSlow);
-            this.flowLayoutPanel.Controls.Add(this.button2);
+            this.flowLayoutPanel.Controls.Add(this.btnOneVsGoodAI);
             this.flowLayoutPanel.Controls.Add(this.lblSpecial);
             this.flowLayoutPanel.Controls.Add(this.btnBall);
-            this.flowLayoutPanel.Controls.Add(this.button3);
+            this.flowLayoutPanel.Controls.Add(this.btnXAxis);
+            this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(771, 554);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(772, 554);
             this.flowLayoutPanel.TabIndex = 0;
             // 
             // lblNormal
             // 
+            this.flowLayoutPanel.SetFlowBreak(this.lblNormal, true);
             this.lblNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNormal.Location = new System.Drawing.Point(4, 0);
             this.lblNormal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -89,8 +91,8 @@
             // btn1Vs1
             // 
             this.btn1Vs1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btn1Vs1.Location = new System.Drawing.Point(145, 4);
-            this.btn1Vs1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn1Vs1.Location = new System.Drawing.Point(4, 69);
+            this.btn1Vs1.Margin = new System.Windows.Forms.Padding(4);
             this.btn1Vs1.Name = "btn1Vs1";
             this.btn1Vs1.Size = new System.Drawing.Size(200, 57);
             this.btn1Vs1.TabIndex = 0;
@@ -102,8 +104,8 @@
             // btnSingleP
             // 
             this.btnSingleP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btnSingleP.Location = new System.Drawing.Point(353, 4);
-            this.btnSingleP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSingleP.Location = new System.Drawing.Point(212, 69);
+            this.btnSingleP.Margin = new System.Windows.Forms.Padding(4);
             this.btnSingleP.Name = "btnSingleP";
             this.btnSingleP.Size = new System.Drawing.Size(200, 57);
             this.btnSingleP.TabIndex = 1;
@@ -115,8 +117,8 @@
             // btnOneVsAI
             // 
             this.btnOneVsAI.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btnOneVsAI.Location = new System.Drawing.Point(561, 4);
-            this.btnOneVsAI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOneVsAI.Location = new System.Drawing.Point(420, 69);
+            this.btnOneVsAI.Margin = new System.Windows.Forms.Padding(4);
             this.btnOneVsAI.Name = "btnOneVsAI";
             this.btnOneVsAI.Size = new System.Drawing.Size(200, 57);
             this.btnOneVsAI.TabIndex = 2;
@@ -127,9 +129,10 @@
             // 
             // btnTwo
             // 
+            this.flowLayoutPanel.SetFlowBreak(this.btnTwo, true);
             this.btnTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.btnTwo.Location = new System.Drawing.Point(4, 69);
-            this.btnTwo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTwo.Location = new System.Drawing.Point(4, 134);
+            this.btnTwo.Margin = new System.Windows.Forms.Padding(4);
             this.btnTwo.Name = "btnTwo";
             this.btnTwo.Size = new System.Drawing.Size(200, 57);
             this.btnTwo.TabIndex = 3;
@@ -140,32 +143,33 @@
             // 
             // lblUnfair
             // 
+            this.flowLayoutPanel.SetFlowBreak(this.lblUnfair, true);
             this.lblUnfair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnfair.Location = new System.Drawing.Point(212, 65);
+            this.lblUnfair.Location = new System.Drawing.Point(4, 195);
             this.lblUnfair.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnfair.Name = "lblUnfair";
             this.lblUnfair.Size = new System.Drawing.Size(133, 31);
             this.lblUnfair.TabIndex = 7;
             this.lblUnfair.Text = "Unfair";
             // 
-            // button1
+            // btnBigVsSmall
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(353, 69);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 57);
-            this.button1.TabIndex = 4;
-            this.button1.Tag = "Big vs. Small Pong";
-            this.button1.Text = "Big vs. Small";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnPlay_Click);
+            this.btnBigVsSmall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.btnBigVsSmall.Location = new System.Drawing.Point(4, 264);
+            this.btnBigVsSmall.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBigVsSmall.Name = "btnBigVsSmall";
+            this.btnBigVsSmall.Size = new System.Drawing.Size(200, 57);
+            this.btnBigVsSmall.TabIndex = 4;
+            this.btnBigVsSmall.Tag = "Big vs. Small Pong";
+            this.btnBigVsSmall.Text = "Big vs. Small";
+            this.btnBigVsSmall.UseVisualStyleBackColor = true;
+            this.btnBigVsSmall.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnFastVsSlow
             // 
             this.btnFastVsSlow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btnFastVsSlow.Location = new System.Drawing.Point(561, 69);
-            this.btnFastVsSlow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFastVsSlow.Location = new System.Drawing.Point(212, 264);
+            this.btnFastVsSlow.Margin = new System.Windows.Forms.Padding(4);
             this.btnFastVsSlow.Name = "btnFastVsSlow";
             this.btnFastVsSlow.Size = new System.Drawing.Size(200, 57);
             this.btnFastVsSlow.TabIndex = 6;
@@ -174,23 +178,25 @@
             this.btnFastVsSlow.UseVisualStyleBackColor = true;
             this.btnFastVsSlow.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // button2
+            // btnOneVsGoodAI
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(4, 134);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 57);
-            this.button2.TabIndex = 7;
-            this.button2.Tag = "Pong vs. the greatest AI ever";
-            this.button2.Text = "1 vs. The greatest AI ever";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnPlay_Click);
+            this.flowLayoutPanel.SetFlowBreak(this.btnOneVsGoodAI, true);
+            this.btnOneVsGoodAI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnOneVsGoodAI.Location = new System.Drawing.Point(420, 264);
+            this.btnOneVsGoodAI.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOneVsGoodAI.Name = "btnOneVsGoodAI";
+            this.btnOneVsGoodAI.Size = new System.Drawing.Size(200, 57);
+            this.btnOneVsGoodAI.TabIndex = 7;
+            this.btnOneVsGoodAI.Tag = "Pong vs. the greatest AI ever";
+            this.btnOneVsGoodAI.Text = "1 vs. The greatest AI ever";
+            this.btnOneVsGoodAI.UseVisualStyleBackColor = true;
+            this.btnOneVsGoodAI.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // lblSpecial
             // 
+            this.flowLayoutPanel.SetFlowBreak(this.lblSpecial, true);
             this.lblSpecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecial.Location = new System.Drawing.Point(212, 130);
+            this.lblSpecial.Location = new System.Drawing.Point(4, 325);
             this.lblSpecial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSpecial.Name = "lblSpecial";
             this.lblSpecial.Size = new System.Drawing.Size(133, 31);
@@ -200,8 +206,8 @@
             // btnBall
             // 
             this.btnBall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.btnBall.Location = new System.Drawing.Point(353, 134);
-            this.btnBall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBall.Location = new System.Drawing.Point(4, 394);
+            this.btnBall.Margin = new System.Windows.Forms.Padding(4);
             this.btnBall.Name = "btnBall";
             this.btnBall.Size = new System.Drawing.Size(200, 57);
             this.btnBall.TabIndex = 8;
@@ -210,18 +216,18 @@
             this.btnBall.UseVisualStyleBackColor = true;
             this.btnBall.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // button3
+            // btnXAxis
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(561, 134);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 57);
-            this.button3.TabIndex = 9;
-            this.button3.Tag = "Single Player With X movement";
-            this.button3.Text = "Single player were you can also move on the X axis";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnPlay_Click);
+            this.btnXAxis.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Bold);
+            this.btnXAxis.Location = new System.Drawing.Point(212, 394);
+            this.btnXAxis.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXAxis.Name = "btnXAxis";
+            this.btnXAxis.Size = new System.Drawing.Size(200, 57);
+            this.btnXAxis.TabIndex = 9;
+            this.btnXAxis.Tag = "Single Player With X movement";
+            this.btnXAxis.Text = "Single player were you can also move on the X axis";
+            this.btnXAxis.UseVisualStyleBackColor = true;
+            this.btnXAxis.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // flowLayoutPanelSettings
             // 
@@ -231,8 +237,9 @@
             this.flowLayoutPanelSettings.Controls.Add(this.btnPaddleColor);
             this.flowLayoutPanelSettings.Controls.Add(this.label1);
             this.flowLayoutPanelSettings.Controls.Add(this.btnBallColor);
-            this.flowLayoutPanelSettings.Location = new System.Drawing.Point(771, 0);
-            this.flowLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanelSettings.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanelSettings.Location = new System.Drawing.Point(772, 0);
+            this.flowLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelSettings.Name = "flowLayoutPanelSettings";
             this.flowLayoutPanelSettings.Padding = new System.Windows.Forms.Padding(7, 6, 0, 0);
             this.flowLayoutPanelSettings.Size = new System.Drawing.Size(295, 554);
@@ -242,7 +249,7 @@
             // 
             this.trackBarBallRadius.AutoSize = false;
             this.trackBarBallRadius.Location = new System.Drawing.Point(11, 10);
-            this.trackBarBallRadius.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarBallRadius.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarBallRadius.Maximum = 100;
             this.trackBarBallRadius.Minimum = 10;
             this.trackBarBallRadius.Name = "trackBarBallRadius";
@@ -251,17 +258,6 @@
             this.trackBarBallRadius.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarBallRadius.Value = 20;
             this.trackBarBallRadius.Scroll += new System.EventHandler(this.trackBarBallRadius_Scroll);
-            // 
-            // btnBackColor
-            // 
-            this.btnBackColor.Location = new System.Drawing.Point(11, 55);
-            this.btnBackColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBackColor.Name = "btnBackColor";
-            this.btnBackColor.Size = new System.Drawing.Size(129, 28);
-            this.btnBackColor.TabIndex = 11;
-            this.btnBackColor.Text = "Back Color";
-            this.btnBackColor.UseVisualStyleBackColor = true;
-            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
             // 
             // labelBallSize
             // 
@@ -273,10 +269,21 @@
             this.labelBallSize.TabIndex = 7;
             this.labelBallSize.Text = "Ball radius: 20";
             // 
+            // btnBackColor
+            // 
+            this.btnBackColor.Location = new System.Drawing.Point(11, 55);
+            this.btnBackColor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBackColor.Name = "btnBackColor";
+            this.btnBackColor.Size = new System.Drawing.Size(129, 28);
+            this.btnBackColor.TabIndex = 11;
+            this.btnBackColor.Text = "Back Color";
+            this.btnBackColor.UseVisualStyleBackColor = true;
+            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
+            // 
             // btnPaddleColor
             // 
             this.btnPaddleColor.Location = new System.Drawing.Point(148, 55);
-            this.btnPaddleColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPaddleColor.Margin = new System.Windows.Forms.Padding(4);
             this.btnPaddleColor.Name = "btnPaddleColor";
             this.btnPaddleColor.Size = new System.Drawing.Size(129, 28);
             this.btnPaddleColor.TabIndex = 12;
@@ -296,7 +303,7 @@
             // btnBallColor
             // 
             this.btnBallColor.Location = new System.Drawing.Point(136, 91);
-            this.btnBallColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBallColor.Margin = new System.Windows.Forms.Padding(4);
             this.btnBallColor.Name = "btnBallColor";
             this.btnBallColor.Size = new System.Drawing.Size(129, 28);
             this.btnBallColor.TabIndex = 13;
@@ -319,11 +326,10 @@
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.flowLayoutPanelSettings);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(547, 543);
             this.Name = "MenuForm";
             this.Text = "menu";
-            this.Resize += new System.EventHandler(this.MenuForm_Resize);
             this.flowLayoutPanel.ResumeLayout(false);
             this.flowLayoutPanelSettings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBallRadius)).EndInit();
@@ -346,10 +352,10 @@
         private System.Windows.Forms.Label lblNormal;
         private System.Windows.Forms.Label lblSpecial;
         private System.Windows.Forms.Label lblUnfair;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBigVsSmall;
         private System.Windows.Forms.Button btnFastVsSlow;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnOneVsGoodAI;
+        private System.Windows.Forms.Button btnXAxis;
         private System.Windows.Forms.Button btnTwo;
         private System.Windows.Forms.Button btnBackColor;
         private System.Windows.Forms.Label label;

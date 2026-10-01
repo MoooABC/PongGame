@@ -28,7 +28,6 @@ namespace Ball
 
         private float targetBallY = 0;
 
-        private const int wompWarningFrames = 15;
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

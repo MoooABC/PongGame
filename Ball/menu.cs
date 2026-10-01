@@ -17,35 +17,9 @@ namespace Ball
         public MenuForm()
         {
             InitializeComponent();
-            flowLayoutPanel.Location = new Point(0, 0);
-            Reset();
 
             labelBallSize.Text = $"Ball radius: {Properties.Settings.Default.BallRadius}";
             trackBarBallRadius.Value = Properties.Settings.Default.BallRadius;
-        }
-
-        private void MenuForm_Resize(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
-        private void Reset()
-        {
-
-            flowLayoutPanel.Size = new Size(ClientSize.Width - flowLayoutPanelSettings.Size.Width, ClientSize.Height);
-
-            // Force the layout to recalculate before accessing ClientSize
-            flowLayoutPanel.PerformLayout();
-
-            Label[] lbls = new Label[] { lblNormal, lblSpecial, lblUnfair };
-            int fullWidth = flowLayoutPanel.ClientSize.Width - 15;
-            foreach (Label lbl in lbls)
-            {
-                lbl.Width = fullWidth;
-            }
-
-            flowLayoutPanelSettings.Location = new Point(flowLayoutPanel.Right, 0);
-            flowLayoutPanelSettings.Size = new Size(flowLayoutPanelSettings.Size.Width, ClientSize.Height);
         }
 
         private void ShowGame()
