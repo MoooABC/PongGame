@@ -16,6 +16,8 @@ namespace Ball
 {
     public partial class PongGame : Form
     {
+        private readonly GameType mode;
+
         private Ball ball;
         private Paddle paddle1;
         private Paddle paddle2;
@@ -31,7 +33,7 @@ namespace Ball
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            switch (GameType.curr)
+            switch (this.mode)
             {
                 case GameType.PongOneVsOne:
                 case GameType.PongBigVsSmall:
@@ -59,11 +61,12 @@ namespace Ball
         }
 
 
-        public PongGame()
+        public PongGame(GameType mode)
         {
+            this.mode = mode;
             InitializeComponent();
 
-            this.Text = GameType.curr;
+            this.Text = mode.DisplayName();
             skControl1 = new SKControl();
             skControl1.PaintSurface += new EventHandler<SKPaintSurfaceEventArgs>(skControl1_PaintSurface);
             Controls.Add(skControl1);
@@ -87,7 +90,7 @@ namespace Ball
             ball = new Ball(w / 2, h / 2, Properties.Settings.Default.BallRadius, SKColor.Parse(ballColorHex));
 
             string paddleColorHex = Properties.Settings.Default.PaddleSKColor;
-            switch (GameType.curr)
+            switch (this.mode)
             {
                 case GameType.PongTwo:
                     paddle1 = new Paddle(new int[] { 15, h / 2 }, 5, SKColor.Parse(paddleColorHex), new ushort[] { 25, 100 });
@@ -130,7 +133,7 @@ namespace Ball
 
             ball.Update(skControl1.Width, skControl1.Height);
 
-            switch (GameType.curr)
+            switch (this.mode)
             {
                 case GameType.BallPong:
                     break; // I allready Updated the ball
@@ -300,7 +303,7 @@ namespace Ball
 
             ball.Render(canvas);
 
-            switch (GameType.curr)
+            switch (this.mode)
             {
                 case GameType.BallPong:
                     break; // I allready Rendered the ball
@@ -331,7 +334,7 @@ namespace Ball
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (GameType.curr)
+            switch (this.mode)
             {
                 case GameType.PongOneVsOne:
                 case GameType.PongVsAI:
@@ -357,14 +360,14 @@ namespace Ball
                     break;
 
                 case Keys.A:
-                    if (GameType.curr == GameType.SinglePlayerWithX)
+                    if (this.mode == GameType.SinglePlayerWithX)
                     {
                         paddle1.SetPosition(new int[] { paddle1.GetPosition()[0] - paddle1.GetSpeed(), paddle1.GetPosition()[1] });
                     }
                     break;
 
                 case Keys.D:
-                    if (GameType.curr == GameType.SinglePlayerWithX)
+                    if (this.mode == GameType.SinglePlayerWithX)
                     {
                         paddle1.SetPosition(new int[] { paddle1.GetPosition()[0] + paddle1.GetSpeed(), paddle1.GetPosition()[1] });
                     }

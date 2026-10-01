@@ -96,7 +96,7 @@
             this.btn1Vs1.Name = "btn1Vs1";
             this.btn1Vs1.Size = new System.Drawing.Size(200, 57);
             this.btn1Vs1.TabIndex = 0;
-            this.btn1Vs1.Tag = "1v1 Pong";
+            btn1Vs1.Tag = GameType.PongOneVsOne;
             this.btn1Vs1.Text = "1 Vs. 1";
             this.btn1Vs1.UseVisualStyleBackColor = true;
             this.btn1Vs1.Click += new System.EventHandler(this.btnPlay_Click);
@@ -109,7 +109,7 @@
             this.btnSingleP.Name = "btnSingleP";
             this.btnSingleP.Size = new System.Drawing.Size(200, 57);
             this.btnSingleP.TabIndex = 1;
-            this.btnSingleP.Tag = "Single Player Pong";
+            btnSingleP.Tag = GameType.PongSinglePlayer;
             this.btnSingleP.Text = "Single Player";
             this.btnSingleP.UseVisualStyleBackColor = true;
             this.btnSingleP.Click += new System.EventHandler(this.btnPlay_Click);
@@ -122,7 +122,7 @@
             this.btnOneVsAI.Name = "btnOneVsAI";
             this.btnOneVsAI.Size = new System.Drawing.Size(200, 57);
             this.btnOneVsAI.TabIndex = 2;
-            this.btnOneVsAI.Tag = "Pong vs AI";
+            btnOneVsAI.Tag = GameType.PongVsAI;
             this.btnOneVsAI.Text = "1 Vs. AI";
             this.btnOneVsAI.UseVisualStyleBackColor = true;
             this.btnOneVsAI.Click += new System.EventHandler(this.btnPlay_Click);
@@ -136,7 +136,7 @@
             this.btnTwo.Name = "btnTwo";
             this.btnTwo.Size = new System.Drawing.Size(200, 57);
             this.btnTwo.TabIndex = 3;
-            this.btnTwo.Tag = "Two Players together";
+            btnTwo.Tag = GameType.PongTwo;
             this.btnTwo.Text = "Two Players together";
             this.btnTwo.UseVisualStyleBackColor = true;
             this.btnTwo.Click += new System.EventHandler(this.btnPlay_Click);
@@ -160,7 +160,7 @@
             this.btnBigVsSmall.Name = "btnBigVsSmall";
             this.btnBigVsSmall.Size = new System.Drawing.Size(200, 57);
             this.btnBigVsSmall.TabIndex = 4;
-            this.btnBigVsSmall.Tag = "Big vs. Small Pong";
+            this.btnBigVsSmall.Tag = GameType.PongBigVsSmall;
             this.btnBigVsSmall.Text = "Big vs. Small";
             this.btnBigVsSmall.UseVisualStyleBackColor = true;
             this.btnBigVsSmall.Click += new System.EventHandler(this.btnPlay_Click);
@@ -173,7 +173,7 @@
             this.btnFastVsSlow.Name = "btnFastVsSlow";
             this.btnFastVsSlow.Size = new System.Drawing.Size(200, 57);
             this.btnFastVsSlow.TabIndex = 6;
-            this.btnFastVsSlow.Tag = "Fast vs. Slow";
+            this.btnFastVsSlow.Tag = GameType.PongFastVsSlow;
             this.btnFastVsSlow.Text = "Fast vs. Slow";
             this.btnFastVsSlow.UseVisualStyleBackColor = true;
             this.btnFastVsSlow.Click += new System.EventHandler(this.btnPlay_Click);
@@ -187,7 +187,7 @@
             this.btnOneVsGoodAI.Name = "btnOneVsGoodAI";
             this.btnOneVsGoodAI.Size = new System.Drawing.Size(200, 57);
             this.btnOneVsGoodAI.TabIndex = 7;
-            this.btnOneVsGoodAI.Tag = "Pong vs. the greatest AI ever";
+            this.btnOneVsGoodAI.Tag = GameType.PongVsGreatAI;
             this.btnOneVsGoodAI.Text = "1 vs. The greatest AI ever";
             this.btnOneVsGoodAI.UseVisualStyleBackColor = true;
             this.btnOneVsGoodAI.Click += new System.EventHandler(this.btnPlay_Click);
@@ -211,7 +211,7 @@
             this.btnBall.Name = "btnBall";
             this.btnBall.Size = new System.Drawing.Size(200, 57);
             this.btnBall.TabIndex = 8;
-            this.btnBall.Tag = "Just Ball";
+            this.btnBall.Tag = GameType.BallPong;
             this.btnBall.Text = "Only Ball";
             this.btnBall.UseVisualStyleBackColor = true;
             this.btnBall.Click += new System.EventHandler(this.btnPlay_Click);
@@ -224,7 +224,7 @@
             this.btnXAxis.Name = "btnXAxis";
             this.btnXAxis.Size = new System.Drawing.Size(200, 57);
             this.btnXAxis.TabIndex = 9;
-            this.btnXAxis.Tag = "Single Player With X movement";
+            this.btnXAxis.Tag = GameType.SinglePlayerWithX;
             this.btnXAxis.Text = "Single player were you can also move on the X axis";
             this.btnXAxis.UseVisualStyleBackColor = true;
             this.btnXAxis.Click += new System.EventHandler(this.btnPlay_Click);

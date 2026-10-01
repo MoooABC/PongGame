@@ -22,9 +22,9 @@ namespace Ball
             trackBarBallRadius.Value = Properties.Settings.Default.BallRadius;
         }
 
-        private void ShowGame()
+        private void ShowGame(GameType mode)
         {
-            PongGame game = new PongGame();
+            PongGame game = new PongGame(mode);
 
             this.Hide();
             game.Show();
@@ -32,10 +32,8 @@ namespace Ball
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            GameType.curr = btn.Tag.ToString();
-
-            ShowGame();
+            GameType mode = (GameType)((Button)sender).Tag;
+            ShowGame(mode);
         }
 
         private void btnBallColor_Click(object sender, EventArgs e)
