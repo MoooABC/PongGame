@@ -333,7 +333,16 @@ namespace Ball
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {            
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                timerUpdate.Enabled = false;
+                DialogResult result = MessageBox.Show("game is paused.\ndo you want to exit?", "++\t(-:\t++", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                    this.Close();
+                timerUpdate.Enabled = true;
+            }
+
             switch (this.mode)
             {
                 case GameType.PongOneVsOne:
