@@ -26,9 +26,9 @@ namespace Ball
             Rectangle paddleBounds = new Rectangle(PaddlePos[0], PaddlePos[1], PaddleSize[0], PaddleSize[1]);
 
 
-
             if (ballBounds.IntersectsWith(paddleBounds))
             {
+                Sfx.PlayHit();
                 Rectangle intersection = Rectangle.Intersect(ballBounds, paddleBounds);
                 float[] velocity = ball.GetVelocity();
 

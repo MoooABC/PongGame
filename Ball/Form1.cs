@@ -272,6 +272,7 @@ namespace Ball
 
                 if (isLeftScore)
                 {
+                    Sfx.PlayScore();
                     score2++;
                     toolStripStatusLabel2.Text = $"Score: {score2}";
                     Reset();
@@ -283,6 +284,7 @@ namespace Ball
 
                 if (isRightScore)
                 {
+                    Sfx.PlayScore();
                     score1++;
                     toolStripStatusLabel1.Text = $"Score: {score1}";
                     Reset();
