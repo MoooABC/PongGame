@@ -227,8 +227,6 @@ namespace Ball
             timerUpdate.Enabled = true;
         }
 
-
-
         private int[] TheGreatestAIEver(Paddle paddle)
         {
             float radius = ball.GetRadius();
