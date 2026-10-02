@@ -25,7 +25,7 @@ namespace Ball
         private void ShowGame(GameType mode)
         {
             PongGame game = new PongGame(mode);
-
+            game.FormClosed += (s, e) => this.Show();
             this.Hide();
             game.Show();
         }

@@ -333,7 +333,7 @@ namespace Ball
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
+        {            
             switch (this.mode)
             {
                 case GameType.PongOneVsOne:
@@ -381,9 +381,7 @@ namespace Ball
         }
         private void toolStripButtonBack_ButtonClick(object sender, EventArgs e)
         {
-            MenuForm menu = new MenuForm();
             this.Close();
-            menu.Show();
         }
 
         private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
