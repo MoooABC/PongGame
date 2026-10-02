@@ -2,7 +2,7 @@
 
 A Pong game written in C# (WinForms + SkiaSharp) with several game modes.
 
-![screenshot](docs\screenshot.png)
+![screenshot](docs/screenshot.png)
 
 ## Controls
 | keys  |      Action       |
