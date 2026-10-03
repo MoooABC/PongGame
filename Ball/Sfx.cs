@@ -6,7 +6,7 @@ using NAudio.Wave.SampleProviders;
 
 namespace Ball
 {
-    public static class Sfx
+    public static class Sfx // written by claude
     {
         public static bool Enabled { get; set; } = true;
 
@@ -17,13 +17,13 @@ namespace Ball
             set { volume = Math.Max(0f, Math.Min(1f, value)); }
         }
 
-        // כל הצלילים והמיקסר באותו פורמט, כדי שהמיקסר יעבוד
         private static readonly WaveFormat Format =
             WaveFormat.CreateIeeeFloatWaveFormat(44100, 2);
 
         private static CachedSound hit;
         private static CachedSound wall;
         private static CachedSound score;
+        private static CachedSound beep;
 
         private static WaveOutEvent output;
         private static MixingSampleProvider mixer;
@@ -33,6 +33,7 @@ namespace Ball
             hit = new CachedSound(Properties.Resources.hit, Format);
             wall = new CachedSound(Properties.Resources.wall, Format);
             score = new CachedSound(Properties.Resources.score, Format);
+            beep = new CachedSound(Properties.Resources.beep, Format);
 
             mixer = new MixingSampleProvider(Format) { ReadFully = true };
 
@@ -44,6 +45,7 @@ namespace Ball
         public static void PlayHit() { Play(hit); }
         public static void PlayWall() { Play(wall); }
         public static void PlayScore() { Play(score); }
+        public static void PlayBeep() { Play(beep); }
 
         private static void Play(CachedSound sound)
         {
@@ -69,8 +71,6 @@ namespace Ball
             }
         }
 
-        // ---- מחלקות עזר ----
-
         private class CachedSound
         {
             public float[] Samples { get; private set; }
@@ -81,11 +81,9 @@ namespace Ball
                 {
                     ISampleProvider source = reader.ToSampleProvider();
 
-                    // התאמת ערוצים
                     if (source.WaveFormat.Channels == 1 && targetFormat.Channels == 2)
                         source = new MonoToStereoSampleProvider(source);
 
-                    // התאמת קצב דגימה
                     if (source.WaveFormat.SampleRate != targetFormat.SampleRate)
                         source = new WdlResamplingSampleProvider(source, targetFormat.SampleRate);
 

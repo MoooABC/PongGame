@@ -123,14 +123,13 @@ namespace Ball
                     paddle2 = new Paddle(new int[] { w - 40, h / 2 }, 5, SKColor.Parse(paddleColorHex), new ushort[] { 25, 100 });
                     break;
             }
-
-            timerUpdate.Enabled = true;
+            lblCountDown.Text = "3";
+            lblCountDown.BringToFront();
+            timerCountDown.Enabled = true;
         }
 
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
-            timerUpdate.Enabled = false;
-
             ball.Update(skControl1.Width, skControl1.Height);
 
             switch (this.mode)
@@ -223,8 +222,6 @@ namespace Ball
             }
 
             skControl1.Invalidate();
-
-            timerUpdate.Enabled = true;
         }
 
         private int[] TheGreatestAIEver(Paddle paddle)
@@ -336,11 +333,16 @@ namespace Ball
         {
             if (e.KeyCode == Keys.Escape)
             {
-                timerUpdate.Enabled = false;
+                Timer timer;
+                if (timerCountDown.Enabled)
+                    timer = timerCountDown;
+                else
+                    timer = timerUpdate;
+                timer.Enabled = false;
                 DialogResult result = MessageBox.Show("game is paused.\ndo you want to exit?", "++\t(-:\t++", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                     this.Close();
-                timerUpdate.Enabled = true;
+                timer.Enabled = true;
             }
 
             switch (this.mode)
@@ -386,6 +388,7 @@ namespace Ball
 
         private void Form1_Resize(object sender, EventArgs e)
         {
+            if (skControl1 == null) return;
             Reset();
         }
         private void toolStripButtonBack_ButtonClick(object sender, EventArgs e)
@@ -398,6 +401,19 @@ namespace Ball
             score1 = 0;
             score2 = 0;
             Reset();
+        }
+
+        private void timerCountDown_Tick(object sender, EventArgs e)
+        {
+            lblCountDown.Text = (int.Parse(lblCountDown.Text) - 1).ToString();
+            Sfx.PlayBeep();
+            if (lblCountDown.Text == "0")
+            {
+                lblCountDown.Text = "3";
+                lblCountDown.SendToBack();
+                timerCountDown.Enabled = false;
+                timerUpdate.Enabled = true;
+            }
         }
     }
 }
