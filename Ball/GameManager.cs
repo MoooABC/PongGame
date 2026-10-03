@@ -9,7 +9,7 @@ namespace Ball
 {
     public static class GameManager
     {
-        public static void DetectAndCareCollision(Ball ball, Paddle paddle)
+        public static void DetectAndCareCollision(PongBall ball, Paddle paddle)
         {
             int radius = ball.GetRadius();
             int[] BallPos = ball.GetPos();
@@ -55,7 +55,7 @@ namespace Ball
                 ball.SetVelocity(velocity);
             }
         }
-        public static bool DetectAndCareScore(Ball ball, int x, int y, int width, int height)
+        public static bool DetectAndCareScore(PongBall ball, int x, int y, int width, int height)
         {
             int radius = ball.GetRadius();
             int[] ballPos = ball.GetPos();

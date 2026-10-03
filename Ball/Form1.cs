@@ -18,7 +18,7 @@ namespace Ball
     {
         private readonly GameType mode;
 
-        private Ball ball;
+        private PongBall ball;
         private Paddle paddle1;
         private Paddle paddle2;
         private Paddle paddle3;
@@ -65,7 +65,7 @@ namespace Ball
         {
             this.mode = mode;
             InitializeComponent();
-
+            Sfx.Initialize();
             this.Text = mode.DisplayName();
             skControl1 = new SKControl();
             skControl1.PaintSurface += new EventHandler<SKPaintSurfaceEventArgs>(skControl1_PaintSurface);
@@ -87,7 +87,7 @@ namespace Ball
             int h = skControl1.Height;
 
             string ballColorHex = Properties.Settings.Default.BallSKColor;
-            ball = new Ball(w / 2, h / 2, Properties.Settings.Default.BallRadius, SKColor.Parse(ballColorHex));
+            ball = new PongBall(w / 2, h / 2, Properties.Settings.Default.BallRadius, SKColor.Parse(ballColorHex));
 
             string paddleColorHex = Properties.Settings.Default.PaddleSKColor;
             switch (this.mode)

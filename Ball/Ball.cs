@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Ball
 {
-    public class Ball
+    public class PongBall
     {
         private int[] pos;
         private float[] vel;
@@ -22,7 +22,7 @@ namespace Ball
 
         private SKPaint paint;
 
-        public Ball(int _x, int _y, int _radius, SKColor color)
+        public PongBall(int _x, int _y, int _radius, SKColor color)
         {                                  
             Random rnd = new Random();
 

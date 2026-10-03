@@ -21,6 +21,6 @@ Requires Windows and .NET Framework 4.7.2.
 
 ## Roadmap
 - [x] Sound effects
-- [ ] Volume slider
+- [x] Volume slider
 - [ ] Countdown before the ball starts moving
 - [ ] Personal records for single player mode

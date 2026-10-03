@@ -20,6 +20,9 @@ namespace Ball
 
             labelBallSize.Text = $"Ball radius: {Properties.Settings.Default.BallRadius}";
             trackBarBallRadius.Value = Properties.Settings.Default.BallRadius;
+
+            lblVolume.Text = $"Volume: {Properties.Settings.Default.Volume}";
+            trackBarVolume.Value = Properties.Settings.Default.Volume;
         }
 
         private void ShowGame(GameType mode)
@@ -86,6 +89,17 @@ namespace Ball
             Properties.Settings.Default.Save();
 
             labelBallSize.Text = $"Ball radius: {value}";
+        }
+
+        private void trackBarVolume_Scroll(object sender, EventArgs e)
+        {
+            byte value = (byte)trackBarVolume.Value;
+
+            Properties.Settings.Default.Volume = value;
+            Properties.Settings.Default.Save();
+
+            lblVolume.Text = $"Volume: {value}";
+            Sfx.Volume = value / 255.0f;
         }
     }
 }
