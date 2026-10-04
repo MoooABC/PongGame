@@ -65,7 +65,6 @@ namespace Ball
         {
             this.mode = mode;
             InitializeComponent();
-            Sfx.Initialize();
             this.Text = mode.DisplayName();
             skControl1 = new SKControl();
             skControl1.PaintSurface += new EventHandler<SKPaintSurfaceEventArgs>(skControl1_PaintSurface);
@@ -373,14 +372,14 @@ namespace Ball
                 case Keys.A:
                     if (this.mode == GameType.SinglePlayerWithX)
                     {
-                        paddle1.SetPosition(new int[] { paddle1.GetPosition()[0] - paddle1.GetSpeed(), paddle1.GetPosition()[1] });
+                        paddle1.Left();
                     }
                     break;
 
                 case Keys.D:
                     if (this.mode == GameType.SinglePlayerWithX)
                     {
-                        paddle1.SetPosition(new int[] { paddle1.GetPosition()[0] + paddle1.GetSpeed(), paddle1.GetPosition()[1] });
+                        paddle1.Right();
                     }
                     break;
             }

@@ -2,10 +2,17 @@
 
 namespace Ball
 {
+    public enum Direction
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
     public class Paddle
     {
         private int[] p;
-        private bool isUp = true;
+        private Direction direction;
         private ushort speed;
         private SKColor color;
 
@@ -22,13 +29,20 @@ namespace Ball
 
         public void Move()
         {
-            if (isUp)
+            switch (direction)
             {
-                p[1] -= speed;
-            }
-            else
-            {
-                p[1] += speed;
+                case Direction.Up:
+                    p[1] -= speed;
+                    break;
+                case Direction.Down:
+                    p[1] += speed;
+                    break;
+                case Direction.Left:
+                    p[0] -= speed;
+                    break;
+                case Direction.Right:
+                    p[0] += speed;
+                    break;
             }
         }
 
@@ -47,8 +61,10 @@ namespace Ball
         }
 
 
-        public void Up() => isUp = true;
-        public void Down() => isUp = false;
+        public void Up() => direction = Direction.Up;
+        public void Down() => direction = Direction.Down;
+        public void Left() => direction = Direction.Left;
+        public void Right() => direction = Direction.Right;
 
         public int[] GetPosition() => p;
         public ushort[] GetSize() => size;

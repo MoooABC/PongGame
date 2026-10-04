@@ -17,6 +17,7 @@ namespace Ball
         public MenuForm()
         {
             InitializeComponent();
+            Sfx.Initialize();
 
             labelBallSize.Text = $"Ball radius: {Properties.Settings.Default.BallRadius}";
             trackBarBallRadius.Value = Properties.Settings.Default.BallRadius;
