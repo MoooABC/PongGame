@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using SkiaSharp;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Ball
 {
@@ -101,6 +102,47 @@ namespace Ball
 
             lblVolume.Text = $"Volume: {value}";
             Sfx.SetVolume((int)(value / 2.55));
+        }
+
+        private void btnSounds_Click(object sender, EventArgs e)
+        {
+            if (cmbSounds.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a sound from the dropdown list.", "No Sound Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string sound = cmbSounds.SelectedItem.ToString();
+
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "WAV files (*.wav)|*.wav";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedFilePath = dialog.FileName;
+
+                    try
+                    {
+                        Properties.Settings.Default[sound+ "Sound"] = selectedFilePath;
+                        Properties.Settings.Default.Save();
+                        Sfx.Initialize();
+                        MessageBox.Show($"Sound '{sound}' updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to update sound '{sound}'.\n Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnSoundReset_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.hitSound = "";
+            Properties.Settings.Default.scoreSound = "";
+            Properties.Settings.Default.beepSound = "";
+            Sfx.Initialize();
+            Properties.Settings.Default.Save();
         }
     }
 }

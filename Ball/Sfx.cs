@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
 using WMPLib;
 
 namespace Ball
@@ -17,30 +19,36 @@ namespace Ball
 
         public static void Initialize()
         {
+            volume = (int)(Properties.Settings.Default.Volume / 2.55);
             string tmpPath = Path.GetTempPath();
 
-            _hit = Load(Path.Combine(tmpPath, "pongHit.wav"), Properties.Resources.hit);
-            _wall = Load(Path.Combine(tmpPath, "pongWall.wav"), Properties.Resources.wall);
-            _score = Load(Path.Combine(tmpPath, "pongScore.wav"), Properties.Resources.score);
-            _beep = Load(Path.Combine(tmpPath, "pongBeep.wav"), Properties.Resources.beep);
+            _hit = Load(Path.Combine(tmpPath, "pongHit.wav"), Properties.Resources.hit, Properties.Settings.Default.hitSound);
+            _wall = Load(Path.Combine(tmpPath, "pongWall.wav"), Properties.Resources.wall, "");
+            _score = Load(Path.Combine(tmpPath, "pongScore.wav"), Properties.Resources.score, Properties.Settings.Default.scoreSound);
+            _beep = Load(Path.Combine(tmpPath, "pongBeep.wav"), Properties.Resources.beep, Properties.Settings.Default.beepSound);
 
         }
 
-        private static WMPLib.WindowsMediaPlayer Load(string path, Stream resource)
+        private static WindowsMediaPlayer Load(string path, Stream resource, string setting)
         {
-            try
+            string currentPath = setting;
+            if (string.IsNullOrEmpty(setting) && !File.Exists(setting))
             {
-                using (var fs = File.Create(path))
+                try
                 {
-                    resource.CopyTo(fs);
+                    using (var fs = File.Create(path))
+                    {
+                        resource.CopyTo(fs);
+                    }
                 }
+                catch (IOException) { }
+                currentPath = path;
             }
-            catch (IOException) { }
 
-            WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+            WindowsMediaPlayer player = new WindowsMediaPlayer();
             player.settings.autoStart = false;
-            player.settings.volume = volume;
-            player.URL = path;
+            player.settings.volume = 100;
+            player.URL = currentPath;
             return player;
         }
 

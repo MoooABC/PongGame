@@ -82,5 +82,41 @@ namespace Ball.Properties {
                 this["Volume"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string hitSound {
+            get {
+                return ((string)(this["hitSound"]));
+            }
+            set {
+                this["hitSound"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string scoreSound {
+            get {
+                return ((string)(this["scoreSound"]));
+            }
+            set {
+                this["scoreSound"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string beepSound {
+            get {
+                return ((string)(this["beepSound"]));
+            }
+            set {
+                this["beepSound"] = value;
+            }
+        }
     }
 }

@@ -31,18 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.lblNormal = new System.Windows.Forms.Label();
-            this.btn1Vs1 = new System.Windows.Forms.Button();
-            this.btnSingleP = new System.Windows.Forms.Button();
-            this.btnOneVsAI = new System.Windows.Forms.Button();
-            this.btnTwo = new System.Windows.Forms.Button();
             this.lblUnfair = new System.Windows.Forms.Label();
-            this.btnBigVsSmall = new System.Windows.Forms.Button();
-            this.btnFastVsSlow = new System.Windows.Forms.Button();
-            this.btnOneVsGoodAI = new System.Windows.Forms.Button();
             this.lblSpecial = new System.Windows.Forms.Label();
-            this.btnBall = new System.Windows.Forms.Button();
-            this.btnXAxis = new System.Windows.Forms.Button();
-            this.btnTwoWithX = new System.Windows.Forms.Button();
             this.flowLayoutPanelSettings = new System.Windows.Forms.FlowLayoutPanel();
             this.trackBarBallRadius = new System.Windows.Forms.TrackBar();
             this.labelBallSize = new System.Windows.Forms.Label();
@@ -52,6 +42,19 @@
             this.btnBackColor = new System.Windows.Forms.Button();
             this.btnPaddleColor = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
+            this.cmbSounds = new System.Windows.Forms.ComboBox();
+            this.btnSounds = new System.Windows.Forms.Button();
+            this.btnSoundReset = new System.Windows.Forms.Button();
+            this.btn1Vs1 = new System.Windows.Forms.Button();
+            this.btnSingleP = new System.Windows.Forms.Button();
+            this.btnOneVsAI = new System.Windows.Forms.Button();
+            this.btnTwo = new System.Windows.Forms.Button();
+            this.btnBigVsSmall = new System.Windows.Forms.Button();
+            this.btnFastVsSlow = new System.Windows.Forms.Button();
+            this.btnOneVsGoodAI = new System.Windows.Forms.Button();
+            this.btnBall = new System.Windows.Forms.Button();
+            this.btnXAxis = new System.Windows.Forms.Button();
+            this.btnTwoWithX = new System.Windows.Forms.Button();
             this.flowLayoutPanel.SuspendLayout();
             this.flowLayoutPanelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBallRadius)).BeginInit();
@@ -78,7 +81,7 @@
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(772, 554);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(727, 554);
             this.flowLayoutPanel.TabIndex = 0;
             // 
             // lblNormal
@@ -91,6 +94,169 @@
             this.lblNormal.Size = new System.Drawing.Size(133, 31);
             this.lblNormal.TabIndex = 4;
             this.lblNormal.Text = "Normal";
+            // 
+            // lblUnfair
+            // 
+            this.flowLayoutPanel.SetFlowBreak(this.lblUnfair, true);
+            this.lblUnfair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnfair.Location = new System.Drawing.Point(4, 195);
+            this.lblUnfair.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUnfair.Name = "lblUnfair";
+            this.lblUnfair.Size = new System.Drawing.Size(133, 31);
+            this.lblUnfair.TabIndex = 7;
+            this.lblUnfair.Text = "Unfair";
+            // 
+            // lblSpecial
+            // 
+            this.flowLayoutPanel.SetFlowBreak(this.lblSpecial, true);
+            this.lblSpecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecial.Location = new System.Drawing.Point(4, 325);
+            this.lblSpecial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSpecial.Name = "lblSpecial";
+            this.lblSpecial.Size = new System.Drawing.Size(133, 31);
+            this.lblSpecial.TabIndex = 5;
+            this.lblSpecial.Text = "Special";
+            // 
+            // flowLayoutPanelSettings
+            // 
+            this.flowLayoutPanelSettings.Controls.Add(this.trackBarBallRadius);
+            this.flowLayoutPanelSettings.Controls.Add(this.labelBallSize);
+            this.flowLayoutPanelSettings.Controls.Add(this.trackBarVolume);
+            this.flowLayoutPanelSettings.Controls.Add(this.lblVolume);
+            this.flowLayoutPanelSettings.Controls.Add(this.btnBallColor);
+            this.flowLayoutPanelSettings.Controls.Add(this.btnBackColor);
+            this.flowLayoutPanelSettings.Controls.Add(this.btnPaddleColor);
+            this.flowLayoutPanelSettings.Controls.Add(this.cmbSounds);
+            this.flowLayoutPanelSettings.Controls.Add(this.btnSounds);
+            this.flowLayoutPanelSettings.Controls.Add(this.btnSoundReset);
+            this.flowLayoutPanelSettings.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanelSettings.Location = new System.Drawing.Point(727, 0);
+            this.flowLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanelSettings.Name = "flowLayoutPanelSettings";
+            this.flowLayoutPanelSettings.Padding = new System.Windows.Forms.Padding(7, 6, 0, 0);
+            this.flowLayoutPanelSettings.Size = new System.Drawing.Size(340, 554);
+            this.flowLayoutPanelSettings.TabIndex = 3;
+            // 
+            // trackBarBallRadius
+            // 
+            this.trackBarBallRadius.AutoSize = false;
+            this.trackBarBallRadius.Location = new System.Drawing.Point(11, 10);
+            this.trackBarBallRadius.Margin = new System.Windows.Forms.Padding(4);
+            this.trackBarBallRadius.Maximum = 100;
+            this.trackBarBallRadius.Minimum = 10;
+            this.trackBarBallRadius.Name = "trackBarBallRadius";
+            this.trackBarBallRadius.Size = new System.Drawing.Size(117, 37);
+            this.trackBarBallRadius.TabIndex = 10;
+            this.trackBarBallRadius.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarBallRadius.Value = 20;
+            this.trackBarBallRadius.Scroll += new System.EventHandler(this.trackBarBallRadius_Scroll);
+            // 
+            // labelBallSize
+            // 
+            this.labelBallSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.labelBallSize.Location = new System.Drawing.Point(136, 6);
+            this.labelBallSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBallSize.Name = "labelBallSize";
+            this.labelBallSize.Size = new System.Drawing.Size(117, 37);
+            this.labelBallSize.TabIndex = 7;
+            this.labelBallSize.Text = "Ball radius: 20";
+            // 
+            // trackBarVolume
+            // 
+            this.trackBarVolume.Location = new System.Drawing.Point(10, 54);
+            this.trackBarVolume.Maximum = 255;
+            this.trackBarVolume.Name = "trackBarVolume";
+            this.trackBarVolume.Size = new System.Drawing.Size(118, 56);
+            this.trackBarVolume.TabIndex = 11;
+            this.trackBarVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarVolume.Scroll += new System.EventHandler(this.trackBarVolume_Scroll);
+            // 
+            // lblVolume
+            // 
+            this.lblVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblVolume.Location = new System.Drawing.Point(135, 51);
+            this.lblVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVolume.Name = "lblVolume";
+            this.lblVolume.Size = new System.Drawing.Size(117, 37);
+            this.lblVolume.TabIndex = 15;
+            this.lblVolume.Text = "Volume: 0";
+            // 
+            // btnBallColor
+            // 
+            this.btnBallColor.Location = new System.Drawing.Point(11, 117);
+            this.btnBallColor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBallColor.Name = "btnBallColor";
+            this.btnBallColor.Size = new System.Drawing.Size(100, 28);
+            this.btnBallColor.TabIndex = 12;
+            this.btnBallColor.Text = "Ball Color";
+            this.btnBallColor.UseVisualStyleBackColor = true;
+            this.btnBallColor.Click += new System.EventHandler(this.btnBallColor_Click);
+            // 
+            // btnBackColor
+            // 
+            this.btnBackColor.Location = new System.Drawing.Point(119, 117);
+            this.btnBackColor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBackColor.Name = "btnBackColor";
+            this.btnBackColor.Size = new System.Drawing.Size(100, 28);
+            this.btnBackColor.TabIndex = 13;
+            this.btnBackColor.Text = "Back Color";
+            this.btnBackColor.UseVisualStyleBackColor = true;
+            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
+            // 
+            // btnPaddleColor
+            // 
+            this.flowLayoutPanelSettings.SetFlowBreak(this.btnPaddleColor, true);
+            this.btnPaddleColor.Location = new System.Drawing.Point(227, 117);
+            this.btnPaddleColor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPaddleColor.Name = "btnPaddleColor";
+            this.btnPaddleColor.Size = new System.Drawing.Size(100, 28);
+            this.btnPaddleColor.TabIndex = 14;
+            this.btnPaddleColor.Text = "Paddle Color";
+            this.btnPaddleColor.UseVisualStyleBackColor = true;
+            this.btnPaddleColor.Click += new System.EventHandler(this.btnPaddleColor_Click);
+            // 
+            // label
+            // 
+            this.label.Location = new System.Drawing.Point(0, 0);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(100, 23);
+            this.label.TabIndex = 0;
+            // 
+            // cmbSounds
+            // 
+            this.cmbSounds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSounds.FormattingEnabled = true;
+            this.cmbSounds.Items.AddRange(new object[] {
+            "beep",
+            "hit",
+            "score"});
+            this.cmbSounds.Location = new System.Drawing.Point(10, 152);
+            this.cmbSounds.Name = "cmbSounds";
+            this.cmbSounds.Size = new System.Drawing.Size(79, 24);
+            this.cmbSounds.TabIndex = 15;
+            // 
+            // btnSounds
+            // 
+            this.btnSounds.Location = new System.Drawing.Point(96, 153);
+            this.btnSounds.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSounds.Name = "btnSounds";
+            this.btnSounds.Size = new System.Drawing.Size(102, 28);
+            this.btnSounds.TabIndex = 16;
+            this.btnSounds.Text = "Edit sound";
+            this.btnSounds.UseVisualStyleBackColor = true;
+            this.btnSounds.Click += new System.EventHandler(this.btnSounds_Click);
+            // 
+            // btnSoundReset
+            // 
+            this.btnSoundReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F);
+            this.btnSoundReset.Location = new System.Drawing.Point(206, 153);
+            this.btnSoundReset.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSoundReset.Name = "btnSoundReset";
+            this.btnSoundReset.Size = new System.Drawing.Size(126, 28);
+            this.btnSoundReset.TabIndex = 17;
+            this.btnSoundReset.Text = "Reset sounds";
+            this.btnSoundReset.UseVisualStyleBackColor = true;
+            this.btnSoundReset.Click += new System.EventHandler(this.btnSoundReset_Click);
             // 
             // btn1Vs1
             // 
@@ -145,17 +311,6 @@
             this.btnTwo.UseVisualStyleBackColor = true;
             this.btnTwo.Click += new System.EventHandler(this.btnPlay_Click);
             // 
-            // lblUnfair
-            // 
-            this.flowLayoutPanel.SetFlowBreak(this.lblUnfair, true);
-            this.lblUnfair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnfair.Location = new System.Drawing.Point(4, 195);
-            this.lblUnfair.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUnfair.Name = "lblUnfair";
-            this.lblUnfair.Size = new System.Drawing.Size(133, 31);
-            this.lblUnfair.TabIndex = 7;
-            this.lblUnfair.Text = "Unfair";
-            // 
             // btnBigVsSmall
             // 
             this.btnBigVsSmall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
@@ -176,7 +331,7 @@
             this.btnFastVsSlow.Margin = new System.Windows.Forms.Padding(4);
             this.btnFastVsSlow.Name = "btnFastVsSlow";
             this.btnFastVsSlow.Size = new System.Drawing.Size(200, 57);
-            this.btnFastVsSlow.TabIndex = 6;
+            this.btnFastVsSlow.TabIndex = 5;
             this.btnFastVsSlow.Tag = Ball.GameType.PongFastVsSlow;
             this.btnFastVsSlow.Text = "Fast vs. Slow";
             this.btnFastVsSlow.UseVisualStyleBackColor = true;
@@ -190,22 +345,11 @@
             this.btnOneVsGoodAI.Margin = new System.Windows.Forms.Padding(4);
             this.btnOneVsGoodAI.Name = "btnOneVsGoodAI";
             this.btnOneVsGoodAI.Size = new System.Drawing.Size(200, 57);
-            this.btnOneVsGoodAI.TabIndex = 7;
+            this.btnOneVsGoodAI.TabIndex = 6;
             this.btnOneVsGoodAI.Tag = Ball.GameType.PongVsGreatAI;
             this.btnOneVsGoodAI.Text = "1 vs. The greatest AI ever";
             this.btnOneVsGoodAI.UseVisualStyleBackColor = true;
             this.btnOneVsGoodAI.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // lblSpecial
-            // 
-            this.flowLayoutPanel.SetFlowBreak(this.lblSpecial, true);
-            this.lblSpecial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecial.Location = new System.Drawing.Point(4, 325);
-            this.lblSpecial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSpecial.Name = "lblSpecial";
-            this.lblSpecial.Size = new System.Drawing.Size(133, 31);
-            this.lblSpecial.TabIndex = 5;
-            this.lblSpecial.Text = "Special";
             // 
             // btnBall
             // 
@@ -214,7 +358,7 @@
             this.btnBall.Margin = new System.Windows.Forms.Padding(4);
             this.btnBall.Name = "btnBall";
             this.btnBall.Size = new System.Drawing.Size(200, 57);
-            this.btnBall.TabIndex = 8;
+            this.btnBall.TabIndex = 7;
             this.btnBall.Tag = Ball.GameType.BallPong;
             this.btnBall.Text = "Only Ball";
             this.btnBall.UseVisualStyleBackColor = true;
@@ -227,7 +371,7 @@
             this.btnXAxis.Margin = new System.Windows.Forms.Padding(4);
             this.btnXAxis.Name = "btnXAxis";
             this.btnXAxis.Size = new System.Drawing.Size(200, 57);
-            this.btnXAxis.TabIndex = 9;
+            this.btnXAxis.TabIndex = 8;
             this.btnXAxis.Tag = Ball.GameType.SinglePlayerWithX;
             this.btnXAxis.Text = "Single player were you can also move on the X axis";
             this.btnXAxis.UseVisualStyleBackColor = true;
@@ -240,112 +384,11 @@
             this.btnTwoWithX.Margin = new System.Windows.Forms.Padding(4);
             this.btnTwoWithX.Name = "btnTwoWithX";
             this.btnTwoWithX.Size = new System.Drawing.Size(200, 57);
-            this.btnTwoWithX.TabIndex = 10;
+            this.btnTwoWithX.TabIndex = 9;
             this.btnTwoWithX.Tag = Ball.GameType.TwoPlayersWithX;
             this.btnTwoWithX.Text = "Two players with X";
             this.btnTwoWithX.UseVisualStyleBackColor = true;
             this.btnTwoWithX.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // flowLayoutPanelSettings
-            // 
-            this.flowLayoutPanelSettings.Controls.Add(this.trackBarBallRadius);
-            this.flowLayoutPanelSettings.Controls.Add(this.labelBallSize);
-            this.flowLayoutPanelSettings.Controls.Add(this.trackBarVolume);
-            this.flowLayoutPanelSettings.Controls.Add(this.lblVolume);
-            this.flowLayoutPanelSettings.Controls.Add(this.btnBallColor);
-            this.flowLayoutPanelSettings.Controls.Add(this.btnBackColor);
-            this.flowLayoutPanelSettings.Controls.Add(this.btnPaddleColor);
-            this.flowLayoutPanelSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanelSettings.Location = new System.Drawing.Point(772, 0);
-            this.flowLayoutPanelSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanelSettings.Name = "flowLayoutPanelSettings";
-            this.flowLayoutPanelSettings.Padding = new System.Windows.Forms.Padding(7, 6, 0, 0);
-            this.flowLayoutPanelSettings.Size = new System.Drawing.Size(295, 554);
-            this.flowLayoutPanelSettings.TabIndex = 3;
-            // 
-            // trackBarBallRadius
-            // 
-            this.trackBarBallRadius.AutoSize = false;
-            this.trackBarBallRadius.Location = new System.Drawing.Point(11, 10);
-            this.trackBarBallRadius.Margin = new System.Windows.Forms.Padding(4);
-            this.trackBarBallRadius.Maximum = 100;
-            this.trackBarBallRadius.Minimum = 10;
-            this.trackBarBallRadius.Name = "trackBarBallRadius";
-            this.trackBarBallRadius.Size = new System.Drawing.Size(117, 37);
-            this.trackBarBallRadius.TabIndex = 10;
-            this.trackBarBallRadius.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBarBallRadius.Value = 20;
-            this.trackBarBallRadius.Scroll += new System.EventHandler(this.trackBarBallRadius_Scroll);
-            // 
-            // labelBallSize
-            // 
-            this.labelBallSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.labelBallSize.Location = new System.Drawing.Point(136, 6);
-            this.labelBallSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelBallSize.Name = "labelBallSize";
-            this.labelBallSize.Size = new System.Drawing.Size(117, 37);
-            this.labelBallSize.TabIndex = 7;
-            this.labelBallSize.Text = "Ball radius: 20";
-            // 
-            // trackBarVolume
-            // 
-            this.trackBarVolume.Location = new System.Drawing.Point(10, 54);
-            this.trackBarVolume.Maximum = 255;
-            this.trackBarVolume.Name = "trackBarVolume";
-            this.trackBarVolume.Size = new System.Drawing.Size(118, 56);
-            this.trackBarVolume.TabIndex = 14;
-            this.trackBarVolume.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBarVolume.Scroll += new System.EventHandler(this.trackBarVolume_Scroll);
-            // 
-            // lblVolume
-            // 
-            this.lblVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblVolume.Location = new System.Drawing.Point(135, 51);
-            this.lblVolume.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVolume.Name = "lblVolume";
-            this.lblVolume.Size = new System.Drawing.Size(117, 37);
-            this.lblVolume.TabIndex = 15;
-            this.lblVolume.Text = "Volume: 0";
-            // 
-            // btnBallColor
-            // 
-            this.btnBallColor.Location = new System.Drawing.Point(11, 117);
-            this.btnBallColor.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBallColor.Name = "btnBallColor";
-            this.btnBallColor.Size = new System.Drawing.Size(129, 28);
-            this.btnBallColor.TabIndex = 13;
-            this.btnBallColor.Text = "Ball Color";
-            this.btnBallColor.UseVisualStyleBackColor = true;
-            this.btnBallColor.Click += new System.EventHandler(this.btnBallColor_Click);
-            // 
-            // btnBackColor
-            // 
-            this.btnBackColor.Location = new System.Drawing.Point(148, 117);
-            this.btnBackColor.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBackColor.Name = "btnBackColor";
-            this.btnBackColor.Size = new System.Drawing.Size(129, 28);
-            this.btnBackColor.TabIndex = 11;
-            this.btnBackColor.Text = "Back Color";
-            this.btnBackColor.UseVisualStyleBackColor = true;
-            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
-            // 
-            // btnPaddleColor
-            // 
-            this.btnPaddleColor.Location = new System.Drawing.Point(11, 153);
-            this.btnPaddleColor.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPaddleColor.Name = "btnPaddleColor";
-            this.btnPaddleColor.Size = new System.Drawing.Size(129, 28);
-            this.btnPaddleColor.TabIndex = 12;
-            this.btnPaddleColor.Text = "Paddle Color";
-            this.btnPaddleColor.UseVisualStyleBackColor = true;
-            this.btnPaddleColor.Click += new System.EventHandler(this.btnPaddleColor_Click);
-            // 
-            // label
-            // 
-            this.label.Location = new System.Drawing.Point(0, 0);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(100, 23);
-            this.label.TabIndex = 0;
             // 
             // MenuForm
             // 
@@ -393,5 +436,8 @@
         private System.Windows.Forms.TrackBar trackBarVolume;
         private System.Windows.Forms.Label lblVolume;
         private System.Windows.Forms.Button btnTwoWithX;
+        private System.Windows.Forms.ComboBox cmbSounds;
+        private System.Windows.Forms.Button btnSounds;
+        private System.Windows.Forms.Button btnSoundReset;
     }
 }
