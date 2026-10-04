@@ -12,64 +12,21 @@ namespace Ball
             float ballX, float ballY,
             float ballSpeedX, float ballSpeedY,
             float botX,
-            float topWall, float bottomWall,
+            float bottomWall,
             float ballHeight)
         {
-            if (ballSpeedX <= 0) return (topWall + bottomWall) / 2f;
+            float bottom = bottomWall - ballHeight;
+            float height = bottom;
 
-            float effectiveBottom = bottomWall - ballHeight;
-            float fieldHeight = effectiveBottom - topWall;
+            if (ballSpeedX <= 0 || height <= 0)
+                return bottom / 2f;
 
-            float distanceX = botX - ballX;
+            float time = (botX - ballX) / ballSpeedX;
+            float y = ballY + ballSpeedY * time;
 
-            float straightY = ballY + ((ballSpeedY / ballSpeedX) * distanceX) - topWall;
-
-            float totalHeight = fieldHeight * 2f;
-            float remainder = straightY % totalHeight;
-
-            if (remainder < 0) remainder += totalHeight;
-
-            if (remainder > fieldHeight)
-            {
-                return effectiveBottom - (remainder - fieldHeight);
-            }
-            else
-            {
-                return topWall + remainder;
-            }
-        }
-        public static float PredictBallLandingYLeft(
-            float ballX, float ballY,
-            float ballSpeedX, float ballSpeedY,
-            float botX,
-            float topWall, float bottomWall,
-            float ballHeight)
-        {
-            if (ballSpeedX == 0f) return (topWall + bottomWall) / 2f;
-
-            float distanceX = botX - ballX;
-            float time = distanceX / ballSpeedX;
-
-            if (time < 0) return (topWall + bottomWall) / 2f;
-
-            float effectiveBottom = bottomWall - ballHeight;
-            float fieldHeight = effectiveBottom - topWall;
-
-            float straightY = ballY + (ballSpeedY * time) - topWall;
-
-            float totalHeight = fieldHeight * 2f;
-            float remainder = straightY % totalHeight;
-
-            if (remainder < 0) remainder += totalHeight;
-
-            if (remainder > fieldHeight)
-            {
-                return effectiveBottom - (remainder - fieldHeight);
-            }
-            else
-            {
-                return topWall + remainder;
-            }
+            y = Math.Abs(y) % (2 * height);
+            if (y > height) y = 2 * height - y;
+            return y;
         }
     }
 }

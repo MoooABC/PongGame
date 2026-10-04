@@ -246,14 +246,11 @@ namespace Ball
         {
             float radius = ball.GetRadius();
 
-            float ballTopLeftX = ball.GetPos()[0] - radius;
-            float ballTopLeftY = ball.GetPos()[1] - radius;
-
             targetBallY = AI.PredictBallLandingYRigth(
-                ballTopLeftX, ballTopLeftY,
+                ball.GetPos()[0], ball.GetPos()[1],
                 ball.GetVelocity()[0], ball.GetVelocity()[1],
                 paddle.GetPosition()[0],
-                0, skControl1.Size.Height,
+                skControl1.Size.Height,
                 radius * 2f
             );
 
@@ -263,16 +260,11 @@ namespace Ball
 
             int botCenterY = botTopY + halfPaddleHeight;
             int speed = paddle.GetSpeed();
-
-            if (botCenterY < (int)targetBallY - (speed / 2))
-            {
+            if (Math.Abs(botCenterY - (int)targetBallY) <= ball.GetRadius())
+                return paddle.GetPosition();
+            if (botCenterY < (int)targetBallY)
                 return new int[] { paddle.GetPosition()[0], botTopY + speed };
-            }
-            else if (botCenterY > (int)targetBallY + (speed / 2))
-            {
-                return new int[] { paddle.GetPosition()[0], botTopY - speed };
-            }
-            return paddle.GetPosition();
+            return new int[] { paddle.GetPosition()[0], botTopY - speed };
         }
 
         private void CareScoreCollision(string direction)
