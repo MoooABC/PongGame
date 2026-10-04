@@ -18,6 +18,7 @@ namespace Ball
         PongVsGreatAI,
         BallPong,
         SinglePlayerWithX,
+        TwoPlayersWithX,
     }
 
 
@@ -37,6 +38,7 @@ namespace Ball
                 case GameType.PongVsGreatAI: return "Pong vs. the greatest AI ever";
                 case GameType.BallPong: return "Just Ball";
                 case GameType.SinglePlayerWithX: return "Single Player With X movement";
+                case GameType.TwoPlayersWithX: return "Two Players With X movement";
                 default: return type.ToString();
             }
         }

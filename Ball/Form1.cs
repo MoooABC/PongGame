@@ -39,6 +39,7 @@ namespace Ball
                 case GameType.PongBigVsSmall:
                 case GameType.PongFastVsSlow:
                 case GameType.PongTwo:
+                case GameType.TwoPlayersWithX:
                     break;
 
                 default:
@@ -55,6 +56,22 @@ namespace Ball
             {
                 paddle2.Down();
                 return true;
+            }
+            if (keyData == Keys.Left)
+            {
+                if (this.mode == GameType.TwoPlayersWithX)
+                {
+                    paddle2.Left();
+                    return true;
+                }
+            }
+            if (keyData == Keys.Right)
+            {
+                if (this.mode == GameType.TwoPlayersWithX)
+                {
+                    paddle2.Right();
+                    return true;
+                }
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
@@ -118,6 +135,7 @@ namespace Ball
                 case GameType.PongVsAI:
                 case GameType.PongVsGreatAI:
                 case GameType.PongOneVsOne:
+                case GameType.TwoPlayersWithX:
                     paddle1 = new Paddle(new int[] { 15, h / 2 }, 5, SKColor.Parse(paddleColorHex), new ushort[] { 25, 100 });
                     paddle2 = new Paddle(new int[] { w - 40, h / 2 }, 5, SKColor.Parse(paddleColorHex), new ushort[] { 25, 100 });
                     break;
@@ -153,6 +171,7 @@ namespace Ball
                 case GameType.PongFastVsSlow:
                 case GameType.PongBigVsSmall:
                 case GameType.PongOneVsOne:
+                case GameType.TwoPlayersWithX:
                     paddle1.Update(skControl1.Width, skControl1.Height);
                     paddle2.Update(skControl1.Width, skControl1.Height);
 
@@ -309,6 +328,7 @@ namespace Ball
                 case GameType.PongVsAI:
                 case GameType.PongVsGreatAI:
                 case GameType.PongOneVsOne:
+                case GameType.TwoPlayersWithX:
                     paddle1.Render(canvas);
                     paddle2.Render(canvas);
                     break;
@@ -354,6 +374,7 @@ namespace Ball
                 case GameType.PongFastVsSlow:
                 case GameType.PongTwo:
                 case GameType.SinglePlayerWithX:
+                case GameType.TwoPlayersWithX:
                     break;
 
                 default:
@@ -370,14 +391,14 @@ namespace Ball
                     break;
 
                 case Keys.A:
-                    if (this.mode == GameType.SinglePlayerWithX)
+                    if (this.mode == GameType.SinglePlayerWithX || this.mode == GameType.TwoPlayersWithX)
                     {
                         paddle1.Left();
                     }
                     break;
 
                 case Keys.D:
-                    if (this.mode == GameType.SinglePlayerWithX)
+                    if (this.mode == GameType.SinglePlayerWithX || this.mode == GameType.TwoPlayersWithX)
                     {
                         paddle1.Right();
                     }
