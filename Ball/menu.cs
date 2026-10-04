@@ -99,7 +99,7 @@ namespace Ball
             Properties.Settings.Default.Save();
 
             lblVolume.Text = $"Volume: {value}";
-            Sfx.Volume = value / 255.0f;
+            Sfx.SetVolume((int)(value / 2.55));
         }
     }
 }

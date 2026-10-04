@@ -1,123 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
+﻿using System.IO;
+using WMPLib;
 
 namespace Ball
 {
-    public static class Sfx // written by claude
+
+    public static class Sfx
     {
-        public static bool Enabled { get; set; } = true;
+        private static WMPLib.WindowsMediaPlayer _hit, _wall, _score, _beep;
 
-        private static float volume = 1f;
-        public static float Volume
-        {
-            get { return volume; }
-            set { volume = Math.Max(0f, Math.Min(1f, value)); }
-        }
+        private static string hit;
+        private static string wall;
+        private static string score;
+        private static string beep;
 
-        private static readonly WaveFormat Format =
-            WaveFormat.CreateIeeeFloatWaveFormat(44100, 2);
-
-        private static CachedSound hit;
-        private static CachedSound wall;
-        private static CachedSound score;
-        private static CachedSound beep;
-
-        private static WaveOutEvent output;
-        private static MixingSampleProvider mixer;
+        public static int volume;
 
         public static void Initialize()
         {
-            hit = new CachedSound(Properties.Resources.hit, Format);
-            wall = new CachedSound(Properties.Resources.wall, Format);
-            score = new CachedSound(Properties.Resources.score, Format);
-            beep = new CachedSound(Properties.Resources.beep, Format);
+            string tmpPath = Path.GetTempPath();
 
-            mixer = new MixingSampleProvider(Format) { ReadFully = true };
+            _hit = Load(Path.Combine(tmpPath, "pongHit.wav"), Properties.Resources.hit);
+            _wall = Load(Path.Combine(tmpPath, "pongWall.wav"), Properties.Resources.wall);
+            _score = Load(Path.Combine(tmpPath, "pongScore.wav"), Properties.Resources.score);
+            _beep = Load(Path.Combine(tmpPath, "pongBeep.wav"), Properties.Resources.beep);
 
-            output = new WaveOutEvent { DesiredLatency = 60 };
-            output.Init(mixer);
-            output.Play();
         }
 
-        public static void PlayHit() { Play(hit); }
-        public static void PlayWall() { Play(wall); }
-        public static void PlayScore() { Play(score); }
-        public static void PlayBeep() { Play(beep); }
-
-        private static void Play(CachedSound sound)
+        private static WMPLib.WindowsMediaPlayer Load(string path, Stream resource)
         {
-            if (!Enabled || sound == null || mixer == null) return;
-
             try
             {
-                var provider = new VolumeSampleProvider(new CachedSoundProvider(sound))
+                using (var fs = File.Create(path))
                 {
-                    Volume = volume
-                };
-                mixer.AddMixerInput(provider);
-            }
-            catch { }
-        }
-
-        public static void Shutdown()
-        {
-            if (output != null)
-            {
-                output.Dispose();
-                output = null;
-            }
-        }
-
-        private class CachedSound
-        {
-            public float[] Samples { get; private set; }
-
-            public CachedSound(Stream wavStream, WaveFormat targetFormat)
-            {
-                using (var reader = new WaveFileReader(wavStream))
-                {
-                    ISampleProvider source = reader.ToSampleProvider();
-
-                    if (source.WaveFormat.Channels == 1 && targetFormat.Channels == 2)
-                        source = new MonoToStereoSampleProvider(source);
-
-                    if (source.WaveFormat.SampleRate != targetFormat.SampleRate)
-                        source = new WdlResamplingSampleProvider(source, targetFormat.SampleRate);
-
-                    var all = new List<float>();
-                    var buffer = new float[source.WaveFormat.SampleRate * source.WaveFormat.Channels];
-                    int read;
-                    while ((read = source.Read(buffer, 0, buffer.Length)) > 0)
-                        all.AddRange(new ArraySegment<float>(buffer, 0, read));
-
-                    Samples = all.ToArray();
+                    resource.CopyTo(fs);
                 }
             }
+            catch (IOException) { }
+
+            WindowsMediaPlayer player = new WMPLib.WindowsMediaPlayer();
+            player.settings.autoStart = false;
+            player.settings.volume = volume;
+            player.URL = path;
+            return player;
         }
 
-        private class CachedSoundProvider : ISampleProvider
+        public static void SetVolume(int vol)
         {
-            private readonly CachedSound sound;
-            private int position;
-
-            public CachedSoundProvider(CachedSound sound) { this.sound = sound; }
-
-            public WaveFormat WaveFormat { get { return Format; } }
-
-            public int Read(float[] buffer, int offset, int count)
-            {
-                int available = sound.Samples.Length - position;
-                int toCopy = Math.Min(available, count);
-                if (toCopy > 0)
-                {
-                    Array.Copy(sound.Samples, position, buffer, offset, toCopy);
-                    position += toCopy;
-                }
-                return toCopy;
-            }
+            volume = vol;
+            _hit.settings.volume = volume;
+            _wall.settings.volume = volume;
+            _score.settings.volume = volume;
+            _beep.settings.volume = volume;
         }
+
+
+        private static void Play(WMPLib.WindowsMediaPlayer p)
+        {
+            p.controls.stop();
+            p.controls.play();
+        }
+
+        public static void PlayHit() => Play(_hit);
+        public static void PlayWall() => Play(_wall);
+        public static void PlayScore() => Play(_score);
+        public static void PlayBeep() => Play(_beep);
     }
 }
